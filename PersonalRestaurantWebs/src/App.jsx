@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css'
-import SunIcon from "./assets/icons/sun.png"
-import MoonIcon from "./assets/icons/moon.png"
 import NavBar from './components/NavBar'
+import Home from './pages/Home'
+import Contact from './components/Contact'
+import About from './pages/About'
+import Reserve from './components/Reserve'
 
 function App() {
   const [theme, setTheme] = useState('dark') 
@@ -16,22 +19,23 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header>
-        <label className="switch">
-          <input
-            type="checkbox"
-            checked={theme === 'light'}
-            onChange={toggleTheme}
-          />
-          <span className="slider">
-            <span className='icon sun'><img src={SunIcon} className="icon" alt="Sun Icon" /></span>
-            <span className='icon moon'><img src={MoonIcon} className="icon" alt="Moon Icon" /></span>
-          </span>
-        </label>
-      </header>
-      <NavBar />
+     <BrowserRouter>
+      <div className="app-container">
+          <NavBar theme={theme} toggleTheme={toggleTheme} />       
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/reserve" element={<Reserve />} />
+        </Routes>
+      </main>
+      <footer className="footer">
+        <p>© 2025 Personal Learning Project. All rights reserved.</p>
+      </footer>
     </div>
+  </BrowserRouter>
   )
 }
+
 export default App

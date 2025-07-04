@@ -1,8 +1,10 @@
 .switch {
   position: relative;
-  display: inline-block;
-  width: 100px;
-  height: 40px;
+  display: inline-flex;
+  width: 70px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 .switch input {
@@ -14,45 +16,45 @@
 .slider {
   position: relative;
   cursor: pointer;
-  background-color: var(--primary-color);
-  border-radius: 40px; 
+  background-color: var(--text-color);
+  border-radius: 30px; 
   height: 100%;
   transition: background-color 0.4s;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px; 
+  padding: 0 8px; 
   box-sizing: border-box;
 }
 
 .slider::before {
   position: absolute;
   content: "";
-  height: 32px;   
-  width: 32px;
-  left: 4px;
-  bottom: 4px;
-  background-color: var(--text-color);
+  height: 24px;   
+  width: 24px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--bg-color);
   border-radius: 50%;
   transition: transform 0.4s;
   z-index: 2;
 }
 
 input:checked + .slider {
-  background-color: var(--primary-color);
+  background-color: var(--text-color);
 }
 
 input:checked + .slider::before {
-  transform: translateX(60px);
+  transform: translateX(38px);
 }
 .icon {
-  font-size: 22px;
+  font-size: 16px;
   z-index: 1;
   user-select: none;
   pointer-events: none;
-  width: 22px;
-    height: 22px;
-    display: flex;
+  width: 16px;
+  height: 16px;
+  display: flex;
   align-items: center;
-justify-content: center;
+  justify-content: center;
 }
