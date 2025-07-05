@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import SunIcon from "../assets/icons/sun.png"
 import MoonIcon from "../assets/icons/moon.png"
-import '../assets/styles/layout/_navbar.scss'
 
 function NavBar({ theme, toggleTheme }) {
   return (

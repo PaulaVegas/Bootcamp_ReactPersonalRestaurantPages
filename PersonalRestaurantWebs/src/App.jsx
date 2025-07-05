@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css'
 import NavBar from './components/NavBar'
-import Home from './pages/Home'
+import Home from './views/Home'
 import Contact from './components/Contact'
-import About from './pages/About'
+import About from './views/About'
 import Reserve from './components/Reserve'
+import Footer from './components/Footer'
 
 function App() {
   const [theme, setTheme] = useState('dark') 
@@ -30,9 +31,7 @@ function App() {
           <Route path="/reserve" element={<Reserve />} />
         </Routes>
       </main>
-      <footer className="footer">
-        <p>© 2025 Personal Learning Project. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   </BrowserRouter>
   )

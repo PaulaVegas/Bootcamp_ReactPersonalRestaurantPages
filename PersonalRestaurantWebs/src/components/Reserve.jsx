@@ -18,13 +18,23 @@ function Reserve() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const today = new Date().toISOString().split('T')[0]
+    if (formData.date < today) {
+    alert(`We unfortunately cannot reserve a table in the past. Please select a valid date.`)
+    return
+    }
+    if (formData.people < 1 || formData.people > 10) {
+      alert(`We can't reserve a table for that many people. Please contact us directly for larger parties.`)
+      return
+    }
     localStorage.setItem('reservation', JSON.stringify(formData))
     navigate('/')
   }
 
   return (
-    <div>
-      <h2>Reserve your table</h2>
+    <section className="form-container">
+      <div className="form">
+        <h2>Reserve your table</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
@@ -55,10 +65,11 @@ function Reserve() {
             onChange={handleChange} 
             required />
         </label>
-        <br/>
-        <button type="submit">Reserve</button>
+        <button className="button" type="submit">Reserve</button>   
       </form>
-    </div>
+      </div>
+      
+    </section>
   )
 }
 

@@ -20,8 +20,10 @@ export default function Contact() {
   }
 
   return (
+    <section className='form-container'>
+      <div className='form'>  
+        <h2>Contact</h2>
     <form onSubmit={handleSubmit}>
-      <h2>Contact</h2>
       <label>
         Name:
         <input
@@ -41,7 +43,9 @@ export default function Contact() {
           required
         />
       </label>
-      <button className='button' type="submit">Send</button>
+    <button className='button' type="submit">Send</button>      
     </form>
+    </div>
+    </section>
   )
 }
